@@ -45,3 +45,11 @@ extension Library {
     }
     
 }
+
+extension Library{
+    var countTags: Int{
+        get{
+            return tags.count
+        }
+    }
+}

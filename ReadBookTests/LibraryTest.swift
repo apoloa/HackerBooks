@@ -12,7 +12,7 @@ import XCTest
 class LibraryTest: XCTestCase {
 
     var books = [Book]()
-    var library : Library?
+    var library : Library = Library(arrayOfBooks: [])
     
     override func setUp() {
         var title = "PruebaBook"
@@ -34,13 +34,16 @@ class LibraryTest: XCTestCase {
         book = Book(title: title, authors: authors, tags: tags, image: image, url: url)
         
         books.append(book)
+        library = Library(arrayOfBooks: books)
     }
     
     func testCreateLibrary() {
-        
-        library = Library(arrayOfBooks: books)
         XCTAssertNotNil(library)
-        
+    }
+    
+    func testCountTags(){
+        let numTags = library.countTags
+        XCTAssertEqual(numTags, 4)
     }
     
     
