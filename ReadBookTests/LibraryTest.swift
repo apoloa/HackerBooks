@@ -57,5 +57,19 @@ class LibraryTest: XCTestCase {
         XCTAssertEqual(thirdTag, "")
     }
     
+    func testGetBooksForTags(){
+        let book = library[0, tag:0]
+        XCTAssertNotNil(book) // Check if book is not nil
+        
+        XCTAssertEqual(book?.title, "PruebaBook")
+    }
+    
+    func testNumberOfBooksForTag(){
+        let numberOfBooks = library.countBooks(tag:0)
+        XCTAssertEqual(numberOfBooks,1)
+        
+        let numberOfBookError = library.countBooks(tag: 4)
+        XCTAssertEqual(numberOfBookError, 0)
+    }
     
 }

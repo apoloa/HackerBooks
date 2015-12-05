@@ -53,6 +53,19 @@ extension Library{
         }
     }
     
+    func countBooks(tag t: Int) -> Int{
+        var numBooks = 0
+        if t >= 0 && t < tags.count {
+            let sTag = tags[t]
+            for book in books{
+                if book.tags.contains(sTag){
+                    numBooks += 1
+                }
+            }
+        }
+        return numBooks
+    }
+    
     subscript(tag tagId :Int) -> String{
         
         if tagId >= 0 && tagId < tags.count {
@@ -60,5 +73,17 @@ extension Library{
         }
         
         return ""
+    }
+    
+    subscript(idBook: Int, tag tagId:Int) -> Book?{
+        if tagId >= 0 && tagId < tags.count {
+            let sTag = tags[tagId]
+            for book in books{
+                if book.tags.contains(sTag){
+                    return book
+                }
+            }
+        }
+        return nil
     }
 }
