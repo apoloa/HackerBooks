@@ -52,4 +52,13 @@ extension Library{
             return tags.count
         }
     }
+    
+    subscript(tag tagId :Int) -> String{
+        
+        if tagId >= 0 && tagId < tags.count {
+            return tags[tagId]
+        }
+        
+        return ""
+    }
 }

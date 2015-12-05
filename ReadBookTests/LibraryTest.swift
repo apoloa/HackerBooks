@@ -46,8 +46,16 @@ class LibraryTest: XCTestCase {
         XCTAssertEqual(numTags, 4)
     }
     
+    func testGetTagName(){
+        let firstTag = library[tag:0]
+        XCTAssertEqual(firstTag, "tags")
+        
+        let secondTag = library[tag:4]
+        XCTAssertEqual(secondTag, "")
+        
+        let thirdTag = library[tag:-1]
+        XCTAssertEqual(thirdTag, "")
+    }
     
-
     
-
 }
