@@ -26,7 +26,7 @@ Se ha empleado la actualización de reloadData(). El método reloadData recarga 
 
 ## Extras
 
-1. Un cambio de diseño más limpio de la aplicación y la posiblidad de compra, la creación de más test unitarios y test de UI. Refactoring de algún codigo que no me parece muy ordenado. 
+1. Un cambio de diseño más limpio de la aplicación y la posiblidad de compra, la creación de más test unitarios y test de UI. Refactoring de algún codigo que no me parece muy ordenado. Permitir guardar la posición del pdf
 
 2. Se ha creado un diseño empleando un poco de la magia de las Extensiones.
 
