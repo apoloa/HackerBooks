@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2020D5061C1E9C7400FA0EA5 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 2020D5051C1E9C7400FA0EA5 /* star.png */; };
+		2020D5081C1E9C7900FA0EA5 /* selectedStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 2020D5071C1E9C7900FA0EA5 /* selectedStar.png */; };
 		203418E31C174A9F000BF63B /* JSONImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203418E21C174A9F000BF63B /* JSONImporter.swift */; };
 		203418EA1C178000000BF63B /* FrameworkExtensionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203418E91C178000000BF63B /* FrameworkExtensionsTest.swift */; };
 		203418EC1C178C2B000BF63B /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203418EB1C178C2B000BF63B /* StringExtensions.swift */; };
@@ -45,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2020D5051C1E9C7400FA0EA5 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		2020D5071C1E9C7900FA0EA5 /* selectedStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectedStar.png; sourceTree = "<group>"; };
 		203418E21C174A9F000BF63B /* JSONImporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONImporter.swift; sourceTree = "<group>"; };
 		203418E91C178000000BF63B /* FrameworkExtensionsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameworkExtensionsTest.swift; sourceTree = "<group>"; };
 		203418EB1C178C2B000BF63B /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
@@ -98,6 +102,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2020D5001C1E9BF400FA0EA5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2020D5051C1E9C7400FA0EA5 /* star.png */,
+				2020D5071C1E9C7900FA0EA5 /* selectedStar.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		203418E41C17615A000BF63B /* Framework */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +190,7 @@
 		20CB63571C10FDC300CDC98A /* App */ = {
 			isa = PBXGroup;
 			children = (
+				2020D5001C1E9BF400FA0EA5 /* Resources */,
 				20DFC5D81C1E94570037AED7 /* Helpers */,
 				20DFC5D71C1E94410037AED7 /* StoryBoards */,
 				2055F7A81C1B513500D93C18 /* Controllers */,
@@ -305,8 +319,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				20CB63421C10FD5800CDC98A /* LaunchScreen.storyboard in Resources */,
+				2020D5081C1E9C7900FA0EA5 /* selectedStar.png in Resources */,
 				20CB633F1C10FD5800CDC98A /* Assets.xcassets in Resources */,
 				20CB633D1C10FD5800CDC98A /* Main.storyboard in Resources */,
+				2020D5061C1E9C7400FA0EA5 /* star.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

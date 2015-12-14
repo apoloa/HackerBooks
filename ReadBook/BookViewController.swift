@@ -36,6 +36,15 @@ class BookViewController: UIViewController {
         
         
     }
+    @IBAction func FavoriteAction(sender: AnyObject) {
+        if let book = book{
+            if book.favorite {
+                book.favorite = false
+            }else{
+                book.favorite = true
+            }
+        }
+    }
     var book : Book?{
         didSet{
             updateUI();

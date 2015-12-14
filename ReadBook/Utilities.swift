@@ -39,6 +39,25 @@ func getFavorites() -> Array<String>{
     return []
 }
 
+func setFavorites(favorites : Array<String>){
+    let defaults  = NSUserDefaults.standardUserDefaults()
+    defaults.setObject(favorites, forKey: constants.nsUserFavoritesString)
+}
+
+func addFavorite(book: String){
+    var favorites = getFavorites()
+    favorites.append(book)
+    setFavorites(favorites)
+}
+
+func removeFavorite(book: String){
+    var favorites = getFavorites()
+    if let index = favorites.indexOf(book){
+        favorites.removeAtIndex(index)
+        setFavorites(favorites)
+    }
+}
+
 func loadLibrary() -> Library{
     do {
         let data = getJSONData()

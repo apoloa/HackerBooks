@@ -18,7 +18,11 @@ class Book : NSObject, Comparable {
     let tags : [String]
     let imageUrl: NSURL?
     let url: NSURL?
-    var favorite: Bool = false
+    var favorite: Bool = false {
+        didSet{
+            sendNotifications()
+        }
+    }
     var book : NSData? = nil
     var image: UIImage? = nil
     
@@ -27,6 +31,13 @@ class Book : NSObject, Comparable {
     var downloadTask: NSURLSessionDownloadTask? = nil
     var backgroundSession: NSURLSession? = nil
     
+    func sendNotifications(){
+        if favorite {
+            addFavorite(title)
+        }else{
+            removeFavorite(title)
+        }
+    }
     
     init(title: String, authors: [String], tags: [String], image: NSURL?, url: NSURL?){
         self.title = title
