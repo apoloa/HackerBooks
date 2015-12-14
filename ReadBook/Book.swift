@@ -37,6 +37,7 @@ class Book : NSObject, Comparable {
         }else{
             removeFavorite(title)
         }
+        NSNotificationCenter.defaultCenter().postNotificationName(NotificationKeys.notifyUpdates, object: nil, userInfo: nil )
     }
     
     init(title: String, authors: [String], tags: [String], image: NSURL?, url: NSURL?){

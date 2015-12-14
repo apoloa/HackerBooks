@@ -29,6 +29,11 @@ class LibraryViewController: UITableViewController {
                 self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: indicator)
             }
         }
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "update:", name: NotificationKeys.firstBook, object: nil)
+    }
+    
+    func update(notification: NSNotification){
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {

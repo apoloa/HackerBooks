@@ -20,4 +20,5 @@ struct constants {
 
 struct NotificationKeys{
     static let firstBook = "firstBook"
+    static let notifyUpdates = "notifyUpdates"
 }
