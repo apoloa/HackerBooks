@@ -9,6 +9,10 @@
 import UIKit
 
 
+/**
+ Function that permit get JSONData
+ - returns: NSData with the json contains
+*/
 func getJSONData() -> NSData {
     let defaults = NSUserDefaults.standardUserDefaults()
 
@@ -26,3 +30,39 @@ func getJSONData() -> NSData {
         
     }
 }
+
+func getFavorites() -> Array<String>{
+    let defaults  = NSUserDefaults.standardUserDefaults()
+    if let array = defaults.objectForKey(constants.nsUserFavoritesString) as? Array<String>{
+        return array
+    }
+    return []
+}
+
+func loadLibrary() -> Library{
+    do {
+        let data = getJSONData()
+        let strictBooks = try decode(data: data)
+        let library = Library.init(strictBooks: strictBooks)
+        return library
+    }catch{
+        fatalError("")
+    }
+}
+
+func loadAsyncLibrary() -> Library{
+    let library : Library = Library()
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
+        let data = getJSONData()
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)){
+            do{
+                try decode(data: data, favorites: getFavorites(), funcNotification: library.addBook, completeNotification:  library.completeBook)
+            }catch{
+                fatalError("")
+            }
+            
+        }
+    }
+    return library
+}
+

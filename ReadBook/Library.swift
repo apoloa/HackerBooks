@@ -11,15 +11,22 @@ import UIKit
 
 class Library {
     // MARK: - Variables
-    let books : [Book]
-    let tags : [String]
-    
+    var books : [Book]
+    var tags : [String]
+    var loadingLibrary : Bool = false
+    weak var delegate: LibraryDelegate?
     // MARK - Constructor
+    
+    init (){
+        books = []
+        tags = []
+    }
     
     init (arrayOfBooks books: [Book], tags: [String]){
         self.books = books
         self.tags = tags
     }
+    
 }
 
 // This extension can help to create a Library. 
@@ -49,11 +56,15 @@ extension Library {
 extension Library{
     var countTags: Int{
         get{
-            return tags.count
+            return tags.count + 1
         }
     }
     
     func countBooks(tag t: Int) -> Int{
+        if t == 0{
+            let booksTag = books.filter({$0.favorite})
+            return booksTag.count
+        }
         if t >= 0 && t < tags.count {
             let sTag = tags[t]
             let booksTag = books.filter({$0.tags.contains(sTag)})
@@ -64,23 +75,34 @@ extension Library{
     }
     
     subscript(tag tagId :Int) -> String{
-        
+        if tagId == 0{
+            return "FAVORITES"
+        }
         if tagId >= 0 && tagId < tags.count {
-            return tags[tagId]
+            return tags[tagId].uppercaseString
         }
         
         return ""
     }
     
     subscript(idBook: Int, tag tagId:Int) -> Book?{
+        if tagId == 0{
+            let booksTag = books.filter({$0.favorite})
+            return booksTag[idBook]
+        }
         if tagId >= 0 && tagId < tags.count {
             let sTag = tags[tagId]
-            for book in books{
-                if book.tags.contains(sTag){
-                    return book
-                }
+            let booksTag = books.filter({$0.tags.contains(sTag)})
+            if idBook >= 0 && idBook < booksTag.count{
+                return booksTag[idBook]
             }
+            return nil
         }
         return nil
     }
+}
+
+protocol LibraryDelegate: class{
+    func addNewBook()
+    func completeLoadBooks()
 }

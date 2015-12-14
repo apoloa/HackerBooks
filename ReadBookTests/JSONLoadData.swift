@@ -11,7 +11,7 @@ import XCTest
 
 @testable import ReadBook
 
-class DownloadJSON: XCTestCase {
+class JSONLoadData: XCTestCase {
 
     func testDownload(){
         let _ = getJSONData()
@@ -34,5 +34,19 @@ class DownloadJSON: XCTestCase {
         self.measureBlock({
             let _ = getJSONData()
         })
+    }
+    
+    func testLoadData(){
+        let data = getJSONData()
+        do{
+            let strictBooks = try decode(data: data)
+            XCTAssertNotNil(strictBooks)
+            XCTAssertEqual(strictBooks.count, 30)
+            let library = Library.init(strictBooks: strictBooks)
+            XCTAssertEqual(library.books.count, 30)
+            XCTAssertEqual(library.tags.count,62)
+        }catch{
+            
+        }
     }
 }
