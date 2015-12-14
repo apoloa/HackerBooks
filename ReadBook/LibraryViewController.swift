@@ -29,7 +29,7 @@ class LibraryViewController: UITableViewController {
                 self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: indicator)
             }
         }
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "update:", name: NotificationKeys.firstBook, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "update:", name: NotificationKeys.notifyUpdates, object: nil)
     }
     
     func update(notification: NSNotification){
